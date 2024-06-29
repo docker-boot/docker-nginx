@@ -1,0 +1,16 @@
+version: "3.1"
+
+services:
+
+  nginx:
+    image: nginx:alpine
+    working_dir: /application
+    volumes:
+      - .:/application
+      - ./log:/var/log/nginx
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 86:86
+      - 87:87
+      - 88:88
+    restart: always
